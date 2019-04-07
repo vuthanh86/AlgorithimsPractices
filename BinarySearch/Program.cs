@@ -10,8 +10,10 @@ namespace BinarySearch
         {
             var random = new Random ();
 
-            var searchList = Enumerable.Range (1, 1000).Select (x => random.Next (2000)).ToHashSet ().ToArray ();
+            var searchList = Enumerable.Range (1, 1000).Select (x => random.Next (2000)).Distinct().OrderBy(x => x).ToArray();
+
             var searchValue = searchList[random.Next (searchList.Length - 1)];
+            
             System.Console.WriteLine ($"Start binary search value = {searchValue} with arr size = {searchList.Length}");
             var sw = new Stopwatch ();
             sw.Start ();
