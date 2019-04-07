@@ -37,7 +37,7 @@ namespace BinarySearch
 
     public static class BinarySearchExtensions
     {
-        private static int SearchRercursive (int[] lists, int searchVal, int lower, int upper)
+        static int SearchRercursive (int[] lists, int searchVal, int lower, int upper)
         {
             if (lower > upper)
             {
@@ -58,7 +58,7 @@ namespace BinarySearch
 
         public static int SafeBinarySearch (this int[] searchList, int val)
         {
-            int upper, lower, mid;
+            int upper, lower;
 
             upper = searchList.Length - 1;
             lower = 0;
