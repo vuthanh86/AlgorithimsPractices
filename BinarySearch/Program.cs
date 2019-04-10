@@ -10,7 +10,7 @@ namespace BinarySearch
         {
             var random = new Random ();
 
-            var searchList = Enumerable.Range (1, 1000).Select (x => random.Next (2000)).Distinct ().OrderBy (x => x).ToArray ();
+            var searchList = Enumerable.Range (1, 10000).Select (x => random.Next (10000)).Distinct ().OrderBy (x => x).ToArray ();
 
             var searchValue = searchList[random.Next (searchList.Length - 1)];
 
@@ -31,6 +31,7 @@ namespace BinarySearch
                 System.Console.WriteLine ("Search value does not exist in array.");
             else
                 System.Console.WriteLine ($"Search completed. Found value at index = {xxx}.");
+            Console.ReadLine();
         }
 
     }

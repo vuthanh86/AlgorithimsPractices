@@ -12,31 +12,27 @@ namespace SelectionSort
         {
             Console.WriteLine("Selection Sort Practice");
             var random = new Random ();
-            var searchList = Enumerable.Range (1, 10000).Select(x => random.Next (20000)).ToArray();
+            var searchList = Enumerable.Range (1, 10000).Select(x => random.Next (10000)).ToArray();
              var sw = new Stopwatch();
             sw.Start ();
-            searchList.SafeSelectionSort();
+            SafeSelectionSort(searchList);
             sw.Stop();
             System.Console.WriteLine($"Sort completed. Total times = {sw.ElapsedMilliseconds} ms.");
+            Console.ReadLine();
         }
-    }
 
-    public static class SortExtensions
-    {
-        public static void SafeSelectionSort(this int[] arrays)
+        static void SafeSelectionSort(int[] arrays)
         {
-            int min, temp;
-
-            for (int outer = 0; outer < arrays.Length; outer++)
+            for (int outer = 0; outer < arrays.Length - 1; outer++)
             {
-                min = outer;
-                for (int inner = outer + 1; inner < arrays.Length; inner++)
+                var min = outer;
+                for (int inner = outer + 1; inner < arrays.Length - 1; inner++)
                 {
                     if (arrays[inner] < arrays[min])
                     {
                         min = inner;
                     }
-                    temp = arrays[outer];
+                    var temp = arrays[outer];
                     arrays[outer] = arrays[min];
                     arrays[min] = temp;
                 }
